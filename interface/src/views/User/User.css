@@ -1,0 +1,19 @@
+.loader {
+	align-self: center;
+	justify-self: center;
+	font-size: 150px;
+	--indicator-color: black;
+	--stroke-width: 10px;
+}
+.dashboard-container {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	align-items: center;
+	min-width: 100vw;
+	min-height: 100vh;
+}
+.course-card {
+	margin: 30px;
+	border-radius: 10px;
+}
