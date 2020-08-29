@@ -104,23 +104,18 @@ authRouter.post("/auth/get_coursework", async (req, res, next) => {
 			})
 		).data.studentSubmissions;
 		if (obj) {
-			res.write(
-				JSON.stringify({
-					gradeList: {
-						courseWorkID: courseworkList[i].id,
-						courseWorkTitle: courseworkList[i].title,
-						courseWorkMax: courseworkList[i].maxPoints,
-						courseWorkDescription: courseworkList[i].description,
-						courseWorkGrade: obj[0].assignedGrade,
-						courseWorkLate: obj[0].late,
-					},
-				}),
-			);
+			finalList.push({
+				courseWorkID: courseworkList[i].id,
+				courseWorkTitle: courseworkList[i].title,
+				courseWorkMax: courseworkList[i].maxPoints,
+				courseWorkDescription: courseworkList[i].description,
+				courseWorkGrade: obj[0].assignedGrade,
+				courseWorkLate: obj[0].late,
+			});
 			console.log("Done");
 		}
 	}
-	res.end();
-	// console.log(finalList);
-	// res.send({ gradeList: await finalList });
+	console.log(finalList);
+	res.send({ gradeList: await finalList });
 });
 module.exports = authRouter;
